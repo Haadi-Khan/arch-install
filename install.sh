@@ -10,10 +10,12 @@ read -p "Are you ready to begin the setup? [y/N]? " -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-    yay -S git
     cat "list.md" | xargs yay -S --noconfirm
     rm -rf ~/.config
     git clone https://github.com/Haadi-Khan/.config.git ~/.config
+    # Sets the shell to zsh
+    chsh -s $(which zsh)
+    ln -s ~/.config/.zshrc ~/.zshrc
 fi
 
 echo "You have now completed installing the base programs and config
@@ -31,7 +33,7 @@ fi
 
 echo "Now, go and install the appropriate files for nfancurve,
 libreoffice icons, and photogimp. Go to their respective folders in ~
-"
+
 
 echo "Almost done. Just remember to get Badlion Client's appimage
 since you're a MC sweat, as well as installing your steam games.
